@@ -1,0 +1,16 @@
+{
+  "total_count": 2,
+  "total_pages": 1,
+  "page_number": 1,
+  "page_size": 25,
+  "collection": [
+    {
+      "id": 1,
+      "title": "List #1"
+    },
+    {
+      "id": 2,
+      "title": "List #2"
+    }
+  ]
+}
