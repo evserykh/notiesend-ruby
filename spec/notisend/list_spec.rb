@@ -5,11 +5,7 @@ describe Notisend::List do
     context 'without params' do
       subject { described_class.get_all }
       before { stub_list_get_all }
-      it { expect(subject.collection.size).to eq 2 }
-      it { expect(subject.total_count).to eq 2 }
-      it { expect(subject.total_pages).to eq 1 }
-      it { expect(subject.page_number).to eq 1 }
-      it { expect(subject.page_size).to eq 25 }
+      include_examples 'collection'
       it { expect(subject.collection.first.id).to eq 1 }
       it { expect(subject.collection.first.title).to eq 'List #1' }
       it { expect(subject.collection.last.id).to eq 2 }
@@ -28,14 +24,14 @@ describe Notisend::List do
 
   describe '.create' do
     subject { described_class.create(title: 'New List') }
-    before { stub_list_create }
+    before { stub_list_create('New List') }
     it { expect(subject.id).to eq 1 }
     it { expect(subject.title).to eq 'New List' }
   end
 
   describe '.get' do
     subject { described_class.get(id: 1) }
-    before { stub_list_get }
+    before { stub_list_get(1) }
     it { expect(subject.id).to eq 1 }
     it { expect(subject.title).to eq 'List' }
   end
