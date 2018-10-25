@@ -2,6 +2,5 @@ language: ruby
 rvm:
   - 2.3
 cache: bundler
-script:
-  - bundle exec rspec
-  - bundle exec rubocop
+notifications:
+  email: false

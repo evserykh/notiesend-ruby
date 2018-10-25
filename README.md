@@ -18,7 +18,7 @@ gem 'notisend-ruby'
 
 ## Configuration
 
-First, you need to set up you api token. To do that set an environment varialble `NOTISEND_API_TOKEN` or in set it code:
+First, you need to set up you api token. You can do that by using the environment varialble `NOTISEND_API_TOKEN` or set it in code:
 
 ```ruby
 require 'notisend'

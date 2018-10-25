@@ -6,9 +6,7 @@ require 'ostruct'
 require 'notisend/blank_query'
 require 'notisend/client'
 require 'notisend/list'
-require 'notisend/message'
 require 'notisend/parameter'
-require 'notisend/recipient'
 require 'notisend/response'
 
 module Notisend

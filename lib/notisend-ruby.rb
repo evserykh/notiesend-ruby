@@ -1,1 +1,1 @@
-require 'notisend'
+require 'notisend' # rubocop:disable Naming/FileName

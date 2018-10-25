@@ -1,7 +1,3 @@
-AllCops:
-  Exclude:
-    - dummy-app/**/*
-
 Metrics/AbcSize:
   Enabled: false
 
