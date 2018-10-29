@@ -1,0 +1,35 @@
+{
+  "total_count": 2,
+  "total_pages": 1,
+  "page_number": 1,
+  "page_size": 25,
+  "collection": [
+    {
+      "id": 1,
+      "email": "email1@example.com",
+      "list_id": 1,
+      "confirmed": true,
+      "values": [
+        {
+          "value": "John",
+          "kind": "string",
+          "parameter_id": 1
+        },
+        {
+          "value": 22.0,
+          "kind": "numeric",
+          "parameter_id": 2
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "email": "email2@example.com",
+      "list_id": 1,
+      "confirmed": true,
+      "values": [
+
+      ]
+    }
+  ]
+}

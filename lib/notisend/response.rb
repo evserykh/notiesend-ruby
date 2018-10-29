@@ -1,6 +1,7 @@
 module Notisend
   Error = Class.new(StandardError)
 
+  # Response wrapper
   class Response
     extend Forwardable
 

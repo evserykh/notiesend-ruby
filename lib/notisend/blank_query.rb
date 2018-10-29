@@ -1,4 +1,5 @@
 module Notisend
+  # blank? method support
   module BlankQuery
     refine NilClass do
       def blank?

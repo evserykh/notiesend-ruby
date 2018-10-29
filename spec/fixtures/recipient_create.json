@@ -1,0 +1,14 @@
+{
+  "id": 1,
+  "email": "email@example.com",
+  "list_id": 1,
+  "confirmed": true,
+  "values": [
+    {
+      "value": "John Smith",
+      "kind": "string",
+      "parameter_id": 1
+    }
+  ]
+}
+

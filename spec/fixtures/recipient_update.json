@@ -1,0 +1,13 @@
+{
+  "id": 1,
+  "email": "new.email@mail.org",
+  "list_id": 1,
+  "confirmed": true,
+  "values": [
+    {
+      "value": "John Black",
+      "kind": "string",
+      "parameter_id": 1
+    }
+  ]
+}

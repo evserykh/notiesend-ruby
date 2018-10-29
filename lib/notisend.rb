@@ -7,8 +7,11 @@ require 'notisend/blank_query'
 require 'notisend/client'
 require 'notisend/list'
 require 'notisend/parameter'
+require 'notisend/recipient'
 require 'notisend/response'
+require 'notisend/version'
 
+# Notisend namespace
 module Notisend
   using BlankQuery
 

@@ -1,4 +1,5 @@
 module Notisend
+  # Requests helper
   class Client
     attr_reader :api_token
 
@@ -7,25 +8,20 @@ module Notisend
     end
 
     def get(path, params = {})
-      make_request(method: :get, path: path, params: params, headers: { 'Content-Type' => 'application/json' })
+      headers = prepare_headers
+      make_request(method: :get, path: path, params: params, headers: headers)
     end
 
     def post(path, params = {}, files = {})
-      multipart = files.values.flatten.any?
+      body = prepare_body(params, files)
+      headers = prepare_headers(files)
+      make_request(method: :post, path: path, headers: headers, body: body, multipart: multipart?(files))
+    end
 
-      headers = {}
-      body = nil
-      if multipart
-        files.each do |name, file_paths|
-          params[name] = file_paths.map { |file_path| Faraday::UploadIO.new(file_path, 'application/octet-stream') }
-        end
-        body = params
-      else
-        headers = { 'Content-Type' => 'application/json' }
-        body = params.to_json
-      end
-
-      make_request(method: :post, path: path, headers: headers, body: body, multipart: multipart)
+    def patch(path, params = {}, files = {})
+      body = prepare_body(params, files)
+      headers = prepare_headers(files)
+      make_request(method: :patch, path: path, headers: headers, body: body, multipart: multipart?(files))
     end
 
     private
@@ -58,7 +54,27 @@ module Notisend
       end
     end
 
-    def make_request(options = {})
+    def multipart?(files)
+      files.values.flatten.any?
+    end
+
+    def prepare_body(params, files)
+      return params.to_json unless multipart?(files)
+
+      files.each_with_object(params) { |(name, value), result| result[name] = value }
+    end
+
+    def prepare_headers(files = {})
+      return { 'Content-Type' => 'application/json' } unless multipart?(files)
+
+      {}
+    end
+
+    def user_agent
+      "NotisendRuby #{VERSION}"
+    end
+
+    def make_request(options = {}) # rubocop:disable Metrics/MethodLength, Metrics/AbcSize
       method = options.fetch(:method)
       path = options.fetch(:path)
       headers = options.fetch(:headers, {})
@@ -69,6 +85,7 @@ module Notisend
       connection = build_connection { |builder| builder.request :multipart if multipart }
 
       response = connection.public_send(method, path) do |request|
+        headers['User-Agent'] = user_agent
         headers.each { |header, value| request.headers[header] = value }
         request.params = params
         request.body = body
