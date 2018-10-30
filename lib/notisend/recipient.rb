@@ -8,10 +8,8 @@ module Notisend
 
       # Gets all recipients for a list
       def get_all(list_id:, params: {})
-        response = client.get(path(list_id), params).parsed_body.tap do |resp|
-          resp['collection'] = resp['collection'].map { |attributes| new(attributes) }
-        end
-        new(response)
+        response = client.get(path(list_id), params).parsed_body
+        Collection.new(response, self)
       end
 
       # Creates a new recipient for a list
