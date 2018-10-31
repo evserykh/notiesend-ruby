@@ -36,6 +36,11 @@ module Notisend
         new(response)
       end
 
+      # Deletes a recipient
+      def delete(list_id:, id:)
+        client.delete(path(list_id, id)).parsed_body
+      end
+
       private
 
       def path(list_id, *args)

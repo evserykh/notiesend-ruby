@@ -51,4 +51,10 @@ describe Notisend::Recipient do
     it { expect(subject.id).to eq 1 }
     it { expect(subject.status).to eq 'queued' }
   end
+
+  describe '.delete' do
+    subject { described_class.delete(list_id: 1, id: 1) }
+    before { stub_recipient_delete(1, 1) }
+    it { expect(subject).to eq nil }
+  end
 end

@@ -16,11 +16,17 @@ module Notisend
     def parsed_body
       raise Error, body unless success?
 
+      return nil if empty?
+
       JSON.parse(body)
     end
 
     def success?
       status >= 200 && status < 300
+    end
+
+    def empty?
+      status == 204
     end
   end
 end

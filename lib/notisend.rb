@@ -12,7 +12,7 @@ require 'notisend/recipient'
 require 'notisend/response'
 require 'notisend/version'
 
-# Notisend namespace
+# Base namespace
 module Notisend
   using BlankQuery
 

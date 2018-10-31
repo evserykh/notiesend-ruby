@@ -91,3 +91,11 @@ def stub_recipient_import(list_id, recipients)
     )
     .to_return(body: read_fixture('recipient_import.json'))
 end
+
+def stub_recipient_delete(list_id, id)
+  stub_request(:delete, "https://api.notisend.ru/v1/email/lists/#{list_id}/recipients/#{id}")
+    .with(
+      headers: common_headers
+    )
+    .to_return(body: '', status: 204)
+end

@@ -24,6 +24,11 @@ module Notisend
       make_request(method: :patch, path: path, headers: headers, body: body, multipart: multipart?(files))
     end
 
+    def delete(path, params = {})
+      headers = prepare_headers
+      make_request(method: :delete, path: path, params: params, headers: headers)
+    end
+
     private
 
     def schema
