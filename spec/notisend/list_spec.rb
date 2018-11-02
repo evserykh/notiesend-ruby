@@ -14,7 +14,7 @@ describe Notisend::List do
 
     context 'when params passed' do
       subject { described_class.get_all(params: { page_size: 1 }) }
-      it 'it uses params' do
+      it 'uses params' do
         stub = stub_list_get_all(page_size: 1)
         subject
         expect(stub).to have_been_requested

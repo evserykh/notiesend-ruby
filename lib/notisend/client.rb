@@ -63,10 +63,16 @@ module Notisend
       files.values.flatten.any?
     end
 
+    def default_mime_type
+      'application/octet-stream'
+    end
+
     def prepare_body(params, files)
       return params.to_json unless multipart?(files)
 
-      files.each_with_object(params) { |(name, value), result| result[name] = value }
+      files.each_with_object(params) do |(name, paths), result|
+        result[name] = paths.map { |path| Faraday::UploadIO.new(path, default_mime_type) }
+      end
     end
 
     def prepare_headers(files = {})

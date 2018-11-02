@@ -1,0 +1,16 @@
+{
+  "id": 1,
+  "payment": "subscriber",
+  "from_email": "sender@mail.com",
+  "from_name": "Sender",
+  "to": "recipient@mail.com",
+  "subject": "Subject",
+  "text": "Text content",
+  "html": "<h1>Html content</h1>",
+  "attachments": [
+    "file.txt"
+  ],
+  "status": "queued",
+  "events": {
+  }
+}
