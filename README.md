@@ -1,6 +1,6 @@
 # Notisend-Ruby [![Build Status](https://travis-ci.org/evserykh/notiesend-ruby.svg?branch=master)](https://travis-ci.org/evserykh/notiesend-ruby) [![Gem Version](https://badge.fury.io/rb/notisend-ruby.svg)](https://badge.fury.io/rb/notisend-ruby)
 
-This is the NotiSend Ruby Library. This library contains methods for easily interacting with the NotiSend API. Below are examples to get you started.
+This is the NotiSend Ruby Library. This library contains methods for easily interacting with the [NotiSend API](https://notisend.ru/dev/email/api/). Below are examples to get you started.
 
 ## Installation
 
