@@ -10,6 +10,7 @@ require 'notisend/list'
 require 'notisend/message'
 require 'notisend/parameter'
 require 'notisend/recipient'
+require 'notisend/recipients_import'
 require 'notisend/response'
 require 'notisend/version'
 

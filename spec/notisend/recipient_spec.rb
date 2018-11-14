@@ -48,6 +48,7 @@ describe Notisend::Recipient do
     let(:recipients) { [{ email: 'email1@mail.com' }, { email: 'email2@mail.com' }] }
     subject { described_class.import(list_id: 1, recipients: recipients) }
     before { stub_recipient_import(1, recipients) }
+    it { expect(subject).to be_a Notisend::RecipientsImport }
     it { expect(subject.id).to eq 1 }
     it { expect(subject.status).to eq 'queued' }
   end

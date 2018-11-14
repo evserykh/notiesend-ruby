@@ -33,7 +33,7 @@ module Notisend
       def import(list_id:, recipients:)
         params = { recipients: recipients }
         response = client.post(path(list_id, 'imports'), params).parsed_body
-        new(response)
+        RecipientsImport.new(response)
       end
 
       # Deletes a recipient
